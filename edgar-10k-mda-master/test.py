@@ -41,3 +41,7 @@ sheet.cell_value(0, 0)
 
 # Extracting number of rows
 print(sheet.nrows)
+sheet.cell_value(0, 4)
+
+for i in range(sheet.nrows):
+    print(sheet.cell_value(i, 4))
