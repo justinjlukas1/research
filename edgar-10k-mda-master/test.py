@@ -1,9 +1,10 @@
 import edgar
+import io
 import xlrd
 import xlwt
 
 #https://www.datacamp.com/community/tutorials/python-excel-tutorial
-
+# https://github.com/ryansmccoy/py-sec-edgar
 company = edgar.Company("Oracle Corp", "0001341439")
 tree = company.getAllFilings(filingType = "10-K")
 docs = edgar.getDocuments(tree, noOfDocuments=2)
@@ -43,5 +44,6 @@ sheet.cell_value(0, 0)
 print(sheet.nrows)
 sheet.cell_value(0, 4)
 
-for i in range(sheet.nrows):
-    print(sheet.cell_value(i, 4))
+# for i in range(sheet.nrows):
+#    with open('file_{0}.dat'.format(i),'w') as f:
+#     f.write(func(sheet.cell_value(i, 4)))
