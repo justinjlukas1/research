@@ -11,8 +11,8 @@ docs = edgar.getDocuments(tree, noOfDocuments=2)
 
 # https://github.com/joeyism/py-edgar
 
-f = open("demofile.txt", "w")
-f.write("%s" % docs)
+f = open("fullCompany.csv", "w")
+# f.write("%s" % docs)
 
 workbook = xlrd.open_workbook('listofITfirms.xls')
 # worksheet = workbook.sheet_by_name('Sheet1')
@@ -42,8 +42,9 @@ sheet.cell_value(0, 0)
 
 # Extracting number of rows
 print(sheet.nrows)
+f.write("Ticker,Name\n")
 sheet.cell_value(0, 4)
 
-# for i in range(sheet.nrows):
-#    with open('file_{0}.dat'.format(i),'w') as f:
-#     f.write(func(sheet.cell_value(i, 4)))
+for i in range(1, sheet.nrows):
+        # f.write("%s,%s\n" % sheet.cell_value(i, 1))
+        f.write("%s,%s\n" % (sheet.cell_value(i, 1), sheet.cell_value(i, 3)))

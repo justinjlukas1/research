@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup   # Need to install this package manually using pi
                                 # We only import part of the Beautifulsoup4
 
 os.chdir('/Users/JustinLukas/Desktop/work/research/edgar-10k-mda-master/')# The location of your file "LongCompanyList.csv
-companyListFile = "CompanyList.csv" # a csv file with the list of company ticker symbols and names (the file has a line with headers)
+companyListFile = "fullCompany.csv" # a csv file with the list of company ticker symbols and names (the file has a line with headers)
 IndexLinksFile = "IndexLinks.csv" # a csv file (output of the current script) with the list of index links for each firm (the file has a line with headers)
 
 def getIndexLink(tickerCode,FormType):
