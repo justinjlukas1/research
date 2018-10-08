@@ -149,6 +149,7 @@ class SecCrawler():
     def create_document_list(self, data):
         # parse fetched data using beatifulsoup
         soup = BeautifulSoup(data)
+        # soup = soup.get_text()
         # store the link in the list
         link_list = list()
 
@@ -176,4 +177,3 @@ class SecCrawler():
             doc_list.append(txtdoc)
             doc_name_list.append(docname)
         return doc_list, doc_name_list
-
