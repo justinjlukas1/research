@@ -14,6 +14,9 @@ sdist
 develop-eggs
 .installed.cfg
 
+#data files
+SEC_Edgar-Data
+
 # Installer logs
 pip-log.txt
 
