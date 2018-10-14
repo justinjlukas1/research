@@ -16,6 +16,8 @@ develop-eggs
 
 #data files
 SEC_Edgar-Data
+Temple_Example/HTML
+Temple_Example/txt
 
 # Installer logs
 pip-log.txt

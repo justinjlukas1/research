@@ -39,7 +39,7 @@ def test():
     for i in range(1, sheet.nrows):
             # f.write("%s,%s\n" % sheet.cell_value(i, 1))
             if sheet.cell_value(i, 1) and sheet.cell_value(i, 4):
-                f.write("%s   %d   199980101   100\n" % (sheet.cell_value(i, 1), sheet.cell_value(i, 4)))
+                f.write("%s   %d   20180101   100\n" % (sheet.cell_value(i, 1), sheet.cell_value(i, 4)))
     f.close()
 
     try:
