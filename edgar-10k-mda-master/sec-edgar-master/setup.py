@@ -1,7 +1,22 @@
 # -*- coding:utf-8 -*-
 import os
 import sys
+import xlsxwriter
+import xlrd
+import xlwt
+import urllib2
+import time
+import csv
+import requests
+import errno
+import time
+import edgar
+import io
 
+from crawler import SecCrawler
+from bs4 import BeautifulSoup
+from config import DEFAULT_DATA_PATH
+from collections import OrderedDict
 from setuptools import setup, find_packages
 from setuptools import Command
 from setuptools.command.install import install

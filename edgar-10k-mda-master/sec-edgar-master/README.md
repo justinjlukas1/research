@@ -1,10 +1,12 @@
+Install setup.py for necessary packages
+
 Inside SECEdgar, list of companies to pull 10-K files is in listofITfirms.xls
 
 Run python test.py with row indexes from listofITfirms.xls
 
 Once 10-K files have been downloaded:
 
-run python analyze.py with selected keywords and keyword vectors. These will be saved to EDGAR_Results.xlsx tallying sentiment found for every file. 
+run python analyze.py with selected keywords and keyword vectors. These will be saved to EDGAR_Results.xlsx tallying sentiment found for every file.
 
 
 
