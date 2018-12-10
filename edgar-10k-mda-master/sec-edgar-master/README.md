@@ -1,11 +1,46 @@
+Inside SECEdgar, list of companies to pull 10-K files is in listofITfirms.xls
+
+Run python test.py with row indexes from listofITfirms.xls
+
+Once 10-K files have been downloaded:
+
+run python analyze.py with selected keywords and keyword vectors. These will be saved to EDGAR_Results.xlsx tallying sentiment found for every file. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 SEC-Edgar-Crawler
 =============
 
- Getting filings of various comapanies at once is really a pain but SEC-Edgar-Crawler does that for you.
+ Getting filings of various companies at once is really a pain but SEC-Edgar-Crawler does that for you.
  you can Download all companies  periodic reports, filings and forms from EDGAR database in a single command.
 
 Installation
-------------- 
+-------------
  You may have to install the package using pip.
  ```bash
  $ pip install SECEdgar
@@ -22,7 +57,7 @@ Installation
 Runing
 -------
  Check [data.txt][1] to see the format in which name of company's, CIK code date (prior to) and count is given to get the filings of that company.
- 
+
  Now to run it start python shell
    ```bash
   >>> from SECEdgar.crawler import SecCrawler
@@ -32,7 +67,7 @@ Runing
  This will download the AAPL company's 10-K filings and the data will be saved in "SEC-Edgar-data" folder which will be created on the run time.
 
 
-Example 
+Example
 --------
 ```python
 import time
@@ -40,15 +75,15 @@ from SECEdgar.crawler import SecCrawler
 
 def get_filings():
 	t1 = time.time()
-	
+
 	# create object
 	seccrawler = SecCrawler()
 
-	companyCode = 'AAPL'    # company code for apple 
+	companyCode = 'AAPL'    # company code for apple
 	cik = '0000320193'      # cik code for apple
 	date = '20010101'       # date from which filings should be downloaded
 	count = '10'            # no of filings
-	
+
 	seccrawler.filing_10Q(str(companyCode), str(cik), str(date), str(count))
 	seccrawler.filing_10K(str(companyCode), str(cik), str(date), str(count))
 	seccrawler.filing_8K(str(companyCode), str(cik), str(date), str(count))
@@ -57,14 +92,14 @@ def get_filings():
 	t2 = time.time()
 	print ("Total Time taken: "),
 	print (t2-t1)
-	
+
 if __name__ == '__main__':
-	get_filings()	
+	get_filings()
 ```
 
 Supported Methods
 -----------------
-Currently this cralwer supports only 4 filings 
+Currently this cralwer supports only 4 filings
 *  10-K
 *  10-Q
 *   8-K
@@ -78,4 +113,3 @@ I have maintained a list of companies with their cik code and the file can be do
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/rahulrrixe/sec-edgar/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
