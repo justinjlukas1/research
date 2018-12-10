@@ -26,6 +26,10 @@ word_vectors = ['anticipate risk', 'indefinite risk', 'fluctuate risk', 'risk li
 workbook = xlsxwriter.Workbook("EDGAR_Results.xlsx")
 
 
+# words = ['keyword_1', 'keyword_2', ...]
+#workbook = xlsxwriter.workbook("workbook_name.xlsx")
+
+
 worksheet = workbook.add_worksheet()
 
 row = 0
@@ -73,7 +77,7 @@ for word in word_vectors:
 row = row + 1
 
 # should be whatever file path contains the data being analyzed
-path = r'C:\Users\research\desktop\research-master\edgar-10k-mda-master\sec-edgar-master\SEC-Edgar-Data'
+path = r'C:\Users\research\documents\github\research\edgar-10k-mda-master\sec-edgar-master\SEC-Edgar-Data'
 pathOriginal = path
 print path
 
@@ -136,13 +140,14 @@ for companyTicker in os.listdir(path):
                             col = col + 1
                         index = index + 1
 
+                # only include if using word_vectors
                 for item in count_vector:
                     index = 0
                     for word in word_vectors:
                         if word == item:
                             # worksheet.write(row, col, count[words[index]])
-                            if(count[word_vectors[index]] > 0)
-                                print word
+                            # if(count[word_vectors[index]] > 0)
+                            #     print word
                             worksheet.write(row, col, count_vector[word_vectors[index]])
                             col = col + 1
                         index = index + 1
