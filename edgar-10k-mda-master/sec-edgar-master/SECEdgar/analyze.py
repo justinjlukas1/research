@@ -21,6 +21,8 @@ countFiles = 100
 
 words = ['anticipate', 'believe', 'depend', 'fluctuate', 'indefinite', 'likelihood', 'possible', 'predict', 'risk', 'uncertain']
 word_vectors = ['anticipate risk', 'indefinite risk', 'fluctuate risk', 'risk likelihood', 'possible risk', 'predict risk', 'uncertain risk']
+# other considerations: unanticipated risk, unanticipated problems, likelihood of an unfavorable outcome, possible to anticipate, possible misuse,
+# possible positive, possible negative, risk factors, market risk, various risks, additional risks, operational risk
 workbook = xlsxwriter.Workbook("EDGAR_Results.xlsx")
 
 
@@ -144,7 +146,7 @@ for companyTicker in os.listdir(path):
                             worksheet.write(row, col, count_vector[word_vectors[index]])
                             col = col + 1
                         index = index + 1
-                        
+
                 row = row + 1
                 for elem in words:
                     count[elem] = 0
