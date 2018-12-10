@@ -1,7 +1,3 @@
-# -*- coding:utf-8 -*-
-# This script will download all the 10-K, 10-Q and 8-K
-# provided that of company symbol and its cik code.
-
 import requests
 import os
 import errno
@@ -12,9 +8,10 @@ from config import DEFAULT_DATA_PATH
 class SecCrawler():
 
     def __init__(self):
-        self.hello = "Welcome to Sec Cralwer!"
+        self.hello = "Welcome to Sec Crawler!"
         print("Path of the directory where data will be saved: " + DEFAULT_DATA_PATH)
 
+# change to not include filing type
     def make_directory(self, company_code, cik, priorto, filing_type):
         # Making the directory to save comapny filings
         path = os.path.join(DEFAULT_DATA_PATH, company_code, cik, filing_type)
@@ -25,7 +22,7 @@ class SecCrawler():
             except OSError as exception:
                 if exception.errno != errno.EEXIST:
                     raise
-
+# change to not include filing type
     def save_in_directory(self, company_code, cik, priorto, doc_list,
         doc_name_list, filing_type):
         # Save every text document into its respective folder
@@ -73,6 +70,11 @@ class SecCrawler():
 
         # get doc list data
         doc_list, doc_name_list = self.create_document_list(data)
+        # years counting back, max of 1993
+        years = len(doc_list)
+
+        for doc in doc_list:
+            print doc
 
         try:
             self.save_in_directory(company_code, cik, priorto, doc_list, doc_name_list, '10-K')
@@ -163,7 +165,7 @@ class SecCrawler():
 
         print ("Number of files to download {0}".format(len(link_list_final)))
         print ("Starting download....")
-
+        years = len(link_list_final)
         # List of url to the text documents
         doc_list = list()
         # List of document names
